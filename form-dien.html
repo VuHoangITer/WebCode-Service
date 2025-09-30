@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Đăng Ký Dịch Vụ Thiết Kế Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+      .step-indicator {
+        transition: all 0.3s ease;
+      }
+      .step-active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        transform: scale(1.1);
+      }
+      .step-completed {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+      .website-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .website-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .website-card.selected {
+        border-color: #667eea;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+      }
+      .layout-option {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .layout-option:hover {
+        background-color: #f8fafc;
+      }
+      .layout-option.selected {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        border-color: #667eea;
+      }
+      .feature-card {
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      .feature-card:hover {
+        background-color: #f0f9ff;
+      }
+      .feature-card.selected {
+        background: linear-gradient(135deg, #ddd6fe 0%, #e0e7ff 100%);
+        border-color: #8b5cf6;
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .progress-bar {
+        transition: width 0.5s ease;
+      }
+      @media (max-width: 768px) {
+        .step-indicator {
+          width: 2rem;
+          height: 2rem;
+          font-size: 0.875rem;
+        }
+        .website-card {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-4 md:py-8 max-w-4xl">
+      <!-- Header -->
+      <div class="text-center mb-6 md:mb-8">
+        <h1
+          class="text-2xl md:text-4xl font-bold gradient-bg bg-clip-text text-transparent mb-2 md:mb-4"
+        >
+          Đăng Ký Dịch Vụ Thiết Kế Website
+        </h1>
+        <p class="text-gray-600 text-sm md:text-lg">
+          Vui lòng điền đầy đủ thông tin để chúng tôi tư vấn tốt nhất cho bạn
+        </p>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="mb-6 md:mb-8">
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center space-x-2 md:space-x-4 w-full">
+            <div
+              class="step-indicator step-active flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full text-white font-bold text-sm"
+            >
+              1
+            </div>
+            <div class="flex-1 h-1 bg-gray-300 rounded relative">
+              <div
+                class="progress-bar h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div
+              class="step-indicator flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-300 text-gray-600 font-bold text-sm"
+            >
+              2
+            </div>
+            <div class="flex-1 h-1 bg-gray-300 rounded relative">
+              <div
+                class="progress-bar h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div
+              class="step-indicator flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-300 text-gray-600 font-bold text-sm"
+            >
+              3
+            </div>
+            <div class="flex-1 h-1 bg-gray-300 rounded relative">
+              <div
+                class="progress-bar h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div
+              class="step-indicator flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-300 text-gray-600 font-bold text-sm"
+            >
+              4
+            </div>
+            <div class="flex-1 h-1 bg-gray-300 rounded relative">
+              <div
+                class="progress-bar h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div
+              class="step-indicator flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-300 text-gray-600 font-bold text-sm"
+            >
+              5
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between text-xs md:text-sm text-gray-600 px-2">
+          <span>Liên hệ</span>
+          <span>Loại web</span>
+          <span>Trang</span>
+          <span>Giao diện</span>
+          <span>Tính năng</span>
+        </div>
+      </div>
+
+      <!-- Floating Chat -->
+      <div
+        class="fixed right-4 bottom-6 z-50 flex flex-col items-end space-y-2.5 text-sm font-semibold"
+      >
+        <!-- Zalo Button + Note -->
+        <div class="relative group">
+          <!-- Note (ẩn mặc định, hiện khi hover) -->
+          <p
+            class="absolute right-14 top-1/2 -translate-y-1/2 hidden group-hover:block text-xs text-gray-700 bg-white px-3 py-1 rounded-lg shadow border whitespace-nowrap"
+          >
+            Liên hệ Zalo để gửi logo, ảnh sản phẩm
+          </p>
+
+          <!-- Zalo (icon-only, tròn) -->
+          <a
+            href="https://zalo.me/0984226602"
+            target="_blank"
+            class="flex items-center justify-center w-12 h-12 rounded-full bg-[#00AEEF] text-white shadow-md hover:shadow-lg hover:scale-105 transition"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+              alt="Zalo"
+              class="w-7 h-7 bg-white rounded-full p-0.5"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- Form Container -->
+      <div class="bg-white rounded-2xl shadow-xl p-4 md:p-8">
+        <form id="websiteForm">
+          <!-- Step 1: Contact Information -->
+          <div id="step1" class="step-content">
+            <h2
+              class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center"
+            >
+              <span
+                class="gradient-bg w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-white text-xs md:text-sm font-bold mr-3"
+                >1</span
+              >
+              Thông Tin Liên Hệ
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+              <div>
+                <label
+                  class="block text-gray-700 font-semibold mb-2 text-sm md:text-base"
+                  >Họ và tên <span class="text-red-500">*</span></label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  required
+                  class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm md:text-base"
+                  placeholder="Nhập họ và tên đầy đủ"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-gray-700 font-semibold mb-2 text-sm md:text-base"
+                  >Email <span class="text-red-500">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm md:text-base"
+                  placeholder="example@email.com"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-gray-700 font-semibold mb-2 text-sm md:text-base"
+                  >Số điện thoại <span class="text-red-500">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm md:text-base"
+                  placeholder="0123 456 789"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-gray-700 font-semibold mb-2 text-sm md:text-base"
+                  >Công ty / Tổ chức</label
+                >
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm md:text-base"
+                  placeholder="Tên công ty (không bắt buộc)"
+                />
+              </div>
+            </div>
+
+            <div class="flex justify-end mt-6 md:mt-8">
+              <button
+                type="button"
+                onclick="nextStep()"
+                class="gradient-bg text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:opacity-90 transition-all text-sm md:text-base"
+              >
+                Tiếp theo →
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Website Type -->
+          <div id="step2" class="step-content hidden">
+            <h2
+              class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center"
+            >
+              <span
+                class="gradient-bg w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-white text-xs md:text-sm font-bold mr-3"
+                >2</span
+              >
+              Thể Loại Website
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+              <div
+                class="website-card border-2 border-gray-200 rounded-xl p-4 md:p-6"
+                onclick="selectWebsiteType('landing')"
+              >
+                <div class="flex items-center mb-3 md:mb-4">
+                  <input
+                    type="radio"
+                    name="websiteType"
+                    value="landing"
+                    class="mr-3"
+                  />
+                  <h3 class="text-lg md:text-xl font-bold">Landing Page</h3>
+                </div>
+                <p class="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
+                  Trang đích tập trung vào một mục tiêu cụ thể, tối ưu chuyển
+                  đổi
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl md:text-2xl font-bold text-green-600"
+                    >4.5 triệu</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
+                    >3-5 ngày</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="website-card border-2 border-gray-200 rounded-xl p-4 md:p-6"
+                onclick="selectWebsiteType('corporate')"
+              >
+                <div class="flex items-center mb-3 md:mb-4">
+                  <input
+                    type="radio"
+                    name="websiteType"
+                    value="corporate"
+                    class="mr-3"
+                  />
+                  <h3 class="text-lg md:text-xl font-bold">
+                    Website Giới Thiệu Doanh Nghiệp
+                  </h3>
+                </div>
+                <p class="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
+                  Website chuyên nghiệp giới thiệu công ty, sản phẩm và dịch vụ
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl md:text-2xl font-bold text-green-600"
+                    >12 triệu</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
+                    >2-3 tuần</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="website-card border-2 border-gray-200 rounded-xl p-4 md:p-6"
+                onclick="selectWebsiteType('ecommerce')"
+              >
+                <div class="flex items-center mb-3 md:mb-4">
+                  <input
+                    type="radio"
+                    name="websiteType"
+                    value="ecommerce"
+                    class="mr-3"
+                  />
+                  <h3 class="text-lg md:text-xl font-bold">
+                    Website Thương Mại Điện Tử
+                  </h3>
+                </div>
+                <p class="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
+                  Cửa hàng trực tuyến đầy đủ tính năng bán hàng và quản lý
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl md:text-2xl font-bold text-green-600"
+                    >28 triệu</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
+                    >4-8 tuần</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="website-card border-2 border-gray-200 rounded-xl p-4 md:p-6"
+                onclick="selectWebsiteType('management')"
+              >
+                <div class="flex items-center mb-3 md:mb-4">
+                  <input
+                    type="radio"
+                    name="websiteType"
+                    value="management"
+                    class="mr-3"
+                  />
+                  <h3 class="text-lg md:text-xl font-bold">
+                    Website Quản Lý Doanh Nghiệp
+                  </h3>
+                </div>
+                <p class="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
+                  Hệ thống quản lý nội bộ với admin panel mạnh mẽ
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl md:text-2xl font-bold text-green-600"
+                    >20 triệu</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
+                    >3-5 tuần</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="website-card border-2 border-gray-200 rounded-xl p-4 md:p-6 md:col-span-2"
+                onclick="selectWebsiteType('custom')"
+              >
+                <div class="flex items-center mb-3 md:mb-4">
+                  <input
+                    type="radio"
+                    name="websiteType"
+                    value="custom"
+                    class="mr-3"
+                  />
+                  <h3 class="text-lg md:text-xl font-bold">
+                    Website Theo Yêu Cầu Riêng
+                  </h3>
+                </div>
+                <p class="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
+                  Thiết kế và phát triển theo yêu cầu đặc biệt của bạn
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl md:text-2xl font-bold text-orange-600"
+                    >Thương lượng</span
+                  >
+                  <span
+                    class="bg-orange-100 text-orange-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm"
+                    >Tùy thuộc</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between mt-6 md:mt-8">
+              <button
+                type="button"
+                onclick="prevStep()"
+                class="bg-gray-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all text-sm md:text-base"
+              >
+                ← Quay lại
+              </button>
+              <button
+                type="button"
+                onclick="nextStep()"
+                class="gradient-bg text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:opacity-90 transition-all text-sm md:text-base"
+              >
+                Tiếp theo →
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Pages Selection -->
+          <div id="step3" class="step-content hidden">
+            <h2
+              class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center"
+            >
+              <span
+                class="gradient-bg w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-white text-xs md:text-sm font-bold mr-3"
+                >3</span
+              >
+              Trang & Chức Năng
+            </h2>
+
+            <div id="pagesContainer">
+              <!-- Pages will be dynamically loaded based on website type -->
+            </div>
+
+            <div class="flex justify-between mt-6 md:mt-8">
+              <button
+                type="button"
+                onclick="prevStep()"
+                class="bg-gray-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all text-sm md:text-base"
+              >
+                ← Quay lại
+              </button>
+              <button
+                type="button"
+                onclick="nextStep()"
+                class="gradient-bg text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:opacity-90 transition-all text-sm md:text-base"
+              >
+                Tiếp theo →
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 4: Design Preferences -->
+          <div id="step4" class="step-content hidden">
+            <h2
+              class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center"
+            >
+              <span
+                class="gradient-bg w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-white text-xs md:text-sm font-bold mr-3"
+                >4</span
+              >
+              Wireframe & Layout / UI
+            </h2>
+
+            <!-- Wireframe Section -->
+            <div class="mb-6 md:mb-8">
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4">
+                1. Wireframe / Tham khảo
+                <p class="text-xs md:text-sm text-gray-500 mt-1">
+                  Không bắt buộc
+                </p>
+              </h3>
+              <div>
+                <label
+                  class="block text-gray-700 font-medium mb-2 text-sm md:text-base"
+                  >Website tham khảo giao diện</label
+                >
+                <input
+                  type="url"
+                  id="referenceWebsite"
+                  name="referenceWebsite"
+                  class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+                  placeholder="https://example.com"
+                />
+                <p class="text-xs md:text-sm text-gray-500 mt-1">
+                  Link website bạn thích giao diện
+                </p>
+              </div>
+            </div>
+            <!-- Layout Preferences -->
+            <div class="mb-6 md:mb-8">
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4">
+                2. Bố cục (Layout) mong muốn
+                <p class="text-xs md:text-sm text-gray-500 mt-1">
+                  Không bắt buộc
+                </p>
+              </h3>
+
+              <!-- Header Layout -->
+              <div class="mb-4 md:mb-6">
+                <h4 class="text-base md:text-lg font-medium mb-2 md:mb-3">
+                  Header / Menu
+                </h4>
+                <div class="space-y-2 md:space-y-3">
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('header', 'logo-left')"
+                  >
+                    <div class="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        name="headerLayout"
+                        value="logo-left"
+                        class="mr-3"
+                      />
+                      <span class="font-medium text-sm md:text-base"
+                        >Logo bên trái, menu ngang</span
+                      >
+                    </div>
+                    <div
+                      class="bg-gray-100 p-2 md:p-3 rounded text-xs md:text-sm flex items-center justify-between"
+                    >
+                      <span>[Logo] —— [Trang chủ] [Giới thiệu] [Sản phẩm]</span>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/logotrai.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+
+                      <!-- Modal hiển thị ảnh to -->
+                      <div
+                        id="imgModal"
+                        class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+                      >
+                        <span
+                          class="absolute top-5 right-8 text-white text-3xl cursor-pointer"
+                          onclick="closeModal()"
+                          >&times;</span
+                        >
+                        <img
+                          id="modalImg"
+                          src=""
+                          class="max-w-[90%] max-h-[90%] rounded shadow-lg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('header', 'logo-center')"
+                  >
+                    <div class="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        name="headerLayout"
+                        value="logo-center"
+                        class="mr-3"
+                      />
+                      <span class="font-medium text-sm md:text-base"
+                        >Logo ở giữa, menu dưới</span
+                      >
+                    </div>
+                    <div
+                      class="bg-gray-100 p-2 md:p-3 rounded text-xs md:text-sm flex items-center justify-between"
+                    >
+                      <span>[Logo ở giữa] — menu bên dưới</span>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/logogiua.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('header', 'menu-sidebar')"
+                  >
+                    <div class="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        name="headerLayout"
+                        value="menu-sidebar"
+                        class="mr-3"
+                      />
+                      <span class="font-medium text-sm md:text-base"
+                        >Menu dọc bên cạnh</span
+                      >
+                    </div>
+                    <div
+                      class="bg-gray-100 p-2 md:p-3 rounded text-xs md:text-sm flex items-center justify-between"
+                    >
+                      <span>Cột trái = menu, bên phải = nội dung</span>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/Blogheader.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Banner Layout -->
+              <div class="mb-4 md:mb-6">
+                <h4 class="text-base md:text-lg font-medium mb-2 md:mb-3">
+                  Banner đầu trang
+                </h4>
+                <div class="space-y-2 md:space-y-3">
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('banner', 'full-image')"
+                  >
+                    <div class="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        name="bannerLayout"
+                        value="full-image"
+                        class="mr-3"
+                      />
+                      <span class="font-medium text-sm md:text-base"
+                        >Hình lớn full-width</span
+                      >
+                    </div>
+                    <div
+                      class="bg-gray-100 p-2 md:p-3 rounded text-xs md:text-sm flex items-center justify-between"
+                    >
+                      <span>Full ảnh, giữa có tiêu đề + nút CTA</span>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/banner-full-width.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('banner', 'slider')"
+                  >
+                    <div class="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        name="bannerLayout"
+                        value="slider"
+                        class="mr-3"
+                      />
+                      <span class="font-medium text-sm md:text-base"
+                        >Slider nhiều hình</span
+                      >
+                    </div>
+                    <div
+                      class="bg-gray-100 p-2 md:p-3 rounded text-xs md:text-sm flex items-center justify-between"
+                    >
+                      <span>Mũi tên trái/phải, hình thay đổi</span>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/banner-slider.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('banner', 'banner-cta')"
+                  >
+                    <div class="flex items-center mb-2">
+                      <input
+                        type="radio"
+                        name="bannerLayout"
+                        value="banner-cta"
+                        class="mr-3"
+                      />
+                      <span class="font-medium text-sm md:text-base"
+                        >Banner nhỏ + CTA</span
+                      >
+                    </div>
+                    <div
+                      class="bg-gray-100 p-2 md:p-3 rounded text-xs md:text-sm flex items-center justify-between"
+                    >
+                      <span>Banner 1/2 màn hình, nút CTA nổi bật</span>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/banner căn giữa.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Layout -->
+              <div class="mb-4 md:mb-6">
+                <h4 class="text-base md:text-lg font-medium mb-2 md:mb-3">
+                  Hiển thị nội dung/sản phẩm
+                </h4>
+                <div class="grid md:grid-cols-2 gap-2 md:gap-3">
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('content', 'grid')"
+                  >
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center">
+                        <input
+                          type="radio"
+                          name="contentLayout"
+                          value="grid"
+                          class="mr-3"
+                        />
+                        <span class="font-medium text-sm md:text-base"
+                          >Grid (lưới)</span
+                        >
+                      </div>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/grid.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('content', 'list')"
+                  >
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center">
+                        <input
+                          type="radio"
+                          name="contentLayout"
+                          value="list"
+                          class="mr-3"
+                        />
+                        <span class="font-medium text-sm md:text-base"
+                          >List (danh sách)</span
+                        >
+                      </div>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/List.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('content', 'sidebar')"
+                  >
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center">
+                        <input
+                          type="radio"
+                          name="contentLayout"
+                          value="sidebar"
+                          class="mr-3"
+                        />
+                        <span class="font-medium text-sm md:text-base"
+                          >Có Sidebar</span
+                        >
+                      </div>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/Sidebar.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('content', 'fullwidth')"
+                  >
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center">
+                        <input
+                          type="radio"
+                          name="contentLayout"
+                          value="fullwidth"
+                          class="mr-3"
+                        />
+                        <span class="font-medium text-sm md:text-base"
+                          >Full-width</span
+                        >
+                      </div>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/Fullwi.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer Layout -->
+              <div class="mb-4 md:mb-6">
+                <h4 class="text-base md:text-lg font-medium mb-2 md:mb-3">
+                  Footer
+                </h4>
+                <div class="grid md:grid-cols-2 gap-2 md:gap-3">
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('footer', 'simple')"
+                  >
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center">
+                        <input
+                          type="radio"
+                          name="footerLayout"
+                          value="simple"
+                          class="mr-3"
+                        />
+                        <span class="font-medium text-sm md:text-base"
+                          >Footer đơn giản</span
+                        >
+                      </div>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/footer-don-gian.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="layout-option border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                    onclick="selectLayout('footer', 'detailed')"
+                  >
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center">
+                        <input
+                          type="radio"
+                          name="footerLayout"
+                          value="detailed"
+                          class="mr-3"
+                        />
+                        <span class="font-medium text-sm md:text-base"
+                          >Footer chi tiết nhiều cột</span
+                        >
+                      </div>
+                      <div
+                        class="w-16 h-8 rounded border-2 border-dashed border-gray-400 overflow-hidden flex items-center justify-center"
+                      >
+                        <img
+                          src="image/footer.png"
+                          alt="Banner nhỏ"
+                          class="w-full h-full object-cover cursor-pointer"
+                          onclick="openModal(this.src)"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Brand & Colors -->
+            <div class="mb-6 md:mb-8">
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4">
+                3. Màu sắc & Nhận diện thương hiệu
+              </h3>
+              <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+                <div class="md:col-span-2">
+                  <label
+                    class="block text-gray-700 font-medium mb-2 text-sm md:text-base"
+                    >Tông màu chính (chọn 2 màu)</label
+                  >
+                  <div class="flex gap-3 items-center">
+                    <div class="flex flex-col items-center">
+                      <label class="text-xs text-gray-500 mb-1"
+                        >Màu chính</label
+                      >
+                      <input
+                        type="color"
+                        id="primaryColor"
+                        name="primaryColor"
+                        value="#3B82F6"
+                        class="w-12 h-12 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition-colors"
+                      />
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <label class="text-xs text-gray-500 mb-1">Màu phụ</label>
+                      <input
+                        type="color"
+                        id="secondaryColor"
+                        name="secondaryColor"
+                        value="#8B5CF6"
+                        class="w-12 h-12 border-2 border-gray-300 rounded-lg cursor-pointer hover:border-purple-500 transition-colors"
+                      />
+                    </div>
+                    <div class="flex-1">
+                      <input
+                        type="text"
+                        id="colorDescription"
+                        name="colorDescription"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+                        placeholder="Mô tả màu sắc mong muốn..."
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between mt-6 md:mt-8">
+              <button
+                type="button"
+                onclick="prevStep()"
+                class="bg-gray-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all text-sm md:text-base"
+              >
+                ← Quay lại
+              </button>
+              <button
+                type="button"
+                onclick="nextStep()"
+                class="gradient-bg text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:opacity-90 transition-all text-sm md:text-base"
+              >
+                Tiếp theo →
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 5: Special Features -->
+          <div id="step5" class="step-content hidden">
+            <h2
+              class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center"
+            >
+              <span
+                class="gradient-bg w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-white text-xs md:text-sm font-bold mr-3"
+                >5</span
+              >
+              Tính Năng Đặc Biệt
+            </h2>
+
+            <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">
+              Chọn các tính năng bổ sung bạn muốn có trong website:
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'responsive')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="responsive"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >📱 Responsive (mọi thiết bị)</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'animation')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="animation"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >✨ Animation / Hiệu ứng</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'darkmode')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="darkmode"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >🌙 Dark Mode</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'multilang')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="multilang"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >🌍 Đa ngôn ngữ</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'seo')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="seo"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >🚀 SEO & tốc độ tải</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'payment')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="payment"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >💳 Thanh toán online</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'search')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="search"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >🔍 Tìm kiếm nâng cao</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'product-filter')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="product-filter"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >🎛️ Bộ lọc sản phẩm trang chủ</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'chatbot')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="chatbot"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >💬 Chatbot / Live chat</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'crm')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="crm"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >📊 Tích hợp CRM</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'floating')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="floating"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >🎈 Floating button</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="feature-card border-2 border-gray-200 rounded-lg p-3 md:p-4"
+                onclick="toggleFeature(this, 'security')"
+              >
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="features"
+                    value="security"
+                    class="mr-3"
+                  />
+                  <span class="font-medium text-sm md:text-base"
+                    >🔒 Bảo mật (SSL, 2FA)</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 md:mt-6">
+              <label
+                class="block text-gray-700 font-medium mb-2 text-sm md:text-base"
+                >Tính năng khác:</label
+              >
+              <textarea
+                id="otherFeatures"
+                name="otherFeatures"
+                rows="3"
+                class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+                placeholder="Mô tả các tính năng đặc biệt khác bạn muốn có..."
+              ></textarea>
+            </div>
+
+            <div class="flex justify-between mt-6 md:mt-8">
+              <button
+                type="button"
+                onclick="prevStep()"
+                class="bg-gray-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all text-sm md:text-base"
+              >
+                ← Quay lại
+              </button>
+              <button
+                type="submit"
+                class="gradient-bg text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:opacity-90 transition-all text-sm md:text-base"
+              >
+                Gửi Đăng Ký 📨
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success Message -->
+      <div
+        id="successMessage"
+        class="hidden bg-white rounded-2xl shadow-xl p-6 md:p-8 text-center"
+      >
+        <div class="text-4xl md:text-6xl mb-4">🎉</div>
+        <h2 class="text-2xl md:text-3xl font-bold text-green-600 mb-4">
+          Đăng Ký Thành Công!
+        </h2>
+        <p class="text-gray-600 text-base md:text-lg mb-6">
+          Cảm ơn bạn đã tin tưởng dịch vụ của chúng tôi. Chúng tôi sẽ liên hệ
+          với bạn trong vòng 24 giờ để tư vấn chi tiết.
+        </p>
+        <button
+          onclick="resetForm()"
+          class="gradient-bg text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:opacity-90 transition-all text-sm md:text-base"
+        >
+          Đăng Ký Dự Án Mới
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let currentStep = 1;
+      let selectedWebsiteType = "";
+
+      const websitePages = {
+        landing: {
+          frontend: [
+            "Hero / Banner",
+            "Giới thiệu",
+            "Tính năng / Lợi ích",
+            "Form liên hệ",
+            "Feedback khách hàng",
+            "Bảng giá",
+          ],
+          admin: [],
+        },
+        corporate: {
+          frontend: [
+            "Trang chủ",
+            "Giới thiệu",
+            "Sản phẩm / Dịch vụ",
+            "Dự án tiêu biểu",
+            "Tin tức / Blog",
+            "Liên hệ",
+            "FAQ",
+            "Chính sách",
+          ],
+          admin: [],
+        },
+        ecommerce: {
+          frontend: [
+            "Trang chủ",
+            "Danh mục sản phẩm",
+            "Trang chi tiết sản phẩm",
+            "Giỏ hàng",
+            "Thanh toán",
+            "Đăng nhập / Đăng ký",
+            "Tài khoản khách hàng",
+            "Tin tức / Blog",
+            "Liên hệ",
+            "Chính sách",
+          ],
+          admin: [
+            "Dashboard",
+            "Quản lý sản phẩm",
+            "Quản lý đơn hàng",
+            "Quản lý khách hàng",
+            "Quản lý banner / slider",
+            "Quản lý tin tức / blog",
+            "Quản lý khuyến mãi / mã giảm giá",
+            "Cấu hình thanh toán & vận chuyển",
+          ],
+        },
+        management: {
+          frontend: [
+            "Trang chủ",
+            "Giới thiệu",
+            "Sản phẩm",
+            "Dự án tiêu biểu",
+            "Tin tức / Blog",
+            "Liên hệ (Form nhập thông tin khách hàng)",
+            "Chính sách",
+          ],
+          admin: [
+            "Dashboard",
+            "Quản lý sản phẩm (Thêm / Sửa / Xóa)",
+            "Quản lý danh mục sản phẩm",
+            "Quản lý banner / slider",
+            "Quản lý khách hàng",
+            "Quản lý tin tức / blog",
+            "Quản lý người dùng",
+            "Cài đặt website",
+          ],
+        },
+        custom: {
+          frontend: [],
+          admin: [],
+        },
+      };
+
+      function nextStep() {
+        if (currentStep === 1) {
+          if (!validateStep1()) return;
+        } else if (currentStep === 2) {
+          if (!selectedWebsiteType) {
+            alert("Vui lòng chọn loại website!");
+            return;
+          }
+          loadPages();
+        }
+
+        if (currentStep < 5) {
+          document.getElementById(`step${currentStep}`).classList.add("hidden");
+          currentStep++;
+          document
+            .getElementById(`step${currentStep}`)
+            .classList.remove("hidden");
+          updateProgressBar();
+        }
+      }
+
+      function prevStep() {
+        if (currentStep > 1) {
+          document.getElementById(`step${currentStep}`).classList.add("hidden");
+          currentStep--;
+          document
+            .getElementById(`step${currentStep}`)
+            .classList.remove("hidden");
+          updateProgressBar();
+        }
+      }
+
+      function updateProgressBar() {
+        const steps = document.querySelectorAll(".step-indicator");
+        const progressBars = document.querySelectorAll(".progress-bar");
+
+        steps.forEach((step, index) => {
+          step.classList.remove("step-active", "step-completed");
+          if (index + 1 < currentStep) {
+            step.classList.add("step-completed");
+          } else if (index + 1 === currentStep) {
+            step.classList.add("step-active");
+          }
+        });
+
+        progressBars.forEach((bar, index) => {
+          if (index < currentStep - 1) {
+            bar.style.width = "100%";
+          } else {
+            bar.style.width = "0%";
+          }
+        });
+      }
+
+      function validateStep1() {
+        const fullName = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+
+        if (!fullName || !email || !phone) {
+          alert("Vui lòng điền đầy đủ thông tin bắt buộc!");
+          return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Email không hợp lệ!");
+          return false;
+        }
+
+        return true;
+      }
+
+      function selectWebsiteType(type) {
+        selectedWebsiteType = type;
+        document.querySelectorAll(".website-card").forEach((card) => {
+          card.classList.remove("selected");
+        });
+        event.currentTarget.classList.add("selected");
+        document.querySelector(`input[value="${type}"]`).checked = true;
+      }
+
+      function loadPages() {
+        const container = document.getElementById("pagesContainer");
+        const pages = websitePages[selectedWebsiteType];
+
+        let html = "";
+
+        if (pages.frontend.length > 0) {
+          html += `
+                    <div class="mb-6 md:mb-8">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">📱 Front-end (Giao diện người dùng)</h3>
+                        <div class="grid md:grid-cols-2 gap-2 md:gap-3">
+                `;
+
+          pages.frontend.forEach((page, index) => {
+            html += `
+                        <label class="flex items-center p-2 md:p-3 border border-gray-200 rounded-lg hover:bg-blue-50 cursor-pointer page-checkbox">
+                            <input type="checkbox" name="frontendPages" value="${page}" checked class="mr-3 text-blue-600">
+                            <span class="text-sm md:text-base">${page}</span>
+                        </label>
+                    `;
+          });
+
+          html += `
+                        </div>
+                        <div class="mt-3 md:mt-4">
+                            <label class="block text-gray-700 font-medium mb-2 text-sm md:text-base">+ Thêm trang khác:</label>
+                            <input type="text" id="additionalFrontendPages" class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm md:text-base" placeholder="Nhập tên trang và bấm Enter để thêm" onkeypress="handleAddPage(event, 'frontend')">
+                            <div id="additionalFrontendList" class="mt-2 space-y-2"></div>
+                        </div>
+                    </div>
+                `;
+        }
+
+        if (pages.admin.length > 0) {
+          html += `
+                    <div class="mb-6 md:mb-8">
+                        <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-green-600">⚙️ Admin Panel (Quản trị viên)</h3>
+                        <div class="grid md:grid-cols-2 gap-2 md:gap-3">
+                `;
+
+          pages.admin.forEach((page, index) => {
+            html += `
+                        <label class="flex items-center p-2 md:p-3 border border-gray-200 rounded-lg hover:bg-green-50 cursor-pointer page-checkbox">
+                            <input type="checkbox" name="adminPages" value="${page}" checked class="mr-3 text-green-600">
+                            <span class="text-sm md:text-base">${page}</span>
+                        </label>
+                    `;
+          });
+
+          html += `
+                        </div>
+                        <div class="mt-3 md:mt-4">
+                            <label class="block text-gray-700 font-medium mb-2 text-sm md:text-base">+ Thêm tính năng admin khác:</label>
+                            <input type="text" id="additionalAdminPages" class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-sm md:text-base" placeholder="Nhập tên tính năng và bấm Enter để thêm" onkeypress="handleAddPage(event, 'admin')">
+                            <div id="additionalAdminList" class="mt-2 space-y-2"></div>
+                        </div>
+                    </div>
+                `;
+        }
+
+        if (selectedWebsiteType === "custom") {
+          html = `
+                    <div class="text-center py-6 md:py-8">
+                        <div class="text-4xl md:text-6xl mb-4">🎨</div>
+                        <h3 class="text-xl md:text-2xl font-semibold mb-4">Website Theo Yêu Cầu Riêng</h3>
+                        <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Vui lòng mô tả chi tiết về website bạn muốn thiết kế</p>
+                        <textarea id="customRequirements" name="customRequirements" rows="6" class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm md:text-base" placeholder="Mô tả chi tiết về loại website, tính năng, giao diện và yêu cầu đặc biệt..."></textarea>
+                    </div>
+                `;
+        }
+
+        container.innerHTML = html;
+      }
+
+      function selectLayout(category, value) {
+        document
+          .querySelectorAll(`input[name="${category}Layout"]`)
+          .forEach((input) => {
+            input.closest(".layout-option").classList.remove("selected");
+          });
+        event.currentTarget.classList.add("selected");
+        document.querySelector(
+          `input[name="${category}Layout"][value="${value}"]`
+        ).checked = true;
+      }
+
+      function toggleFeature(element, value) {
+        const checkbox = element.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+
+        if (checkbox.checked) {
+          element.classList.add("selected");
+        } else {
+          element.classList.remove("selected");
+        }
+      }
+
+      function handleAddPage(event, type) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Ngăn form submit
+
+          const input = event.target;
+          const pageName = input.value.trim();
+
+          if (pageName) {
+            addPageToList(pageName, type);
+            input.value = ""; // Xóa input sau khi thêm
+          }
+        }
+      }
+
+      function addPageToList(pageName, type) {
+        const listId =
+          type === "frontend"
+            ? "additionalFrontendList"
+            : "additionalAdminList";
+        const list = document.getElementById(listId);
+        const color = type === "frontend" ? "blue" : "green";
+
+        const pageElement = document.createElement("div");
+        pageElement.className = `flex items-center justify-between p-2 md:p-3 border border-${color}-200 rounded-lg bg-${color}-50`;
+        pageElement.innerHTML = `
+                <div class="flex items-center">
+                    <input type="checkbox" name="${type}AdditionalPages" value="${pageName}" checked class="mr-3 text-${color}-600">
+                    <span class="text-sm md:text-base">${pageName}</span>
+                </div>
+                <button type="button" onclick="removePage(this)" class="text-red-500 hover:text-red-700 text-sm font-medium">
+                    ✕ Xóa
+                </button>
+            `;
+
+        list.appendChild(pageElement);
+      }
+
+      function removePage(button) {
+        button.closest("div").remove();
+      }
+
+      function resetForm() {
+        document.getElementById("websiteForm").reset();
+        document.getElementById("successMessage").classList.add("hidden");
+        document
+          .querySelector(".bg-white.rounded-2xl.shadow-xl")
+          .classList.remove("hidden");
+        currentStep = 1;
+        selectedWebsiteType = "";
+
+        // Reset all steps
+        for (let i = 1; i <= 5; i++) {
+          document.getElementById(`step${i}`).classList.add("hidden");
+        }
+        document.getElementById("step1").classList.remove("hidden");
+
+        // Reset selections
+        document
+          .querySelectorAll(".website-card")
+          .forEach((card) => card.classList.remove("selected"));
+        document
+          .querySelectorAll(".layout-option")
+          .forEach((option) => option.classList.remove("selected"));
+        document
+          .querySelectorAll(".feature-card")
+          .forEach((card) => card.classList.remove("selected"));
+
+        // Clear additional pages lists
+        document.getElementById("additionalFrontendList").innerHTML = "";
+        document.getElementById("additionalAdminList").innerHTML = "";
+
+        updateProgressBar();
+      }
+
+      document
+        .getElementById("websiteForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Collect all form data
+          const formData = new FormData(this);
+          const data = {};
+
+          // Basic info
+          data.fullName = document.getElementById("fullName").value;
+          data.email = document.getElementById("email").value;
+          data.phone = document.getElementById("phone").value;
+          data.company = document.getElementById("company").value;
+          data.websiteType = selectedWebsiteType;
+
+          // Selected pages
+          data.frontendPages = Array.from(
+            document.querySelectorAll('input[name="frontendPages"]:checked')
+          ).map((cb) => cb.value);
+          data.adminPages = Array.from(
+            document.querySelectorAll('input[name="adminPages"]:checked')
+          ).map((cb) => cb.value);
+
+          // Additional pages
+          data.frontendAdditionalPages = Array.from(
+            document.querySelectorAll(
+              'input[name="frontendAdditionalPages"]:checked'
+            )
+          ).map((cb) => cb.value);
+          data.adminAdditionalPages = Array.from(
+            document.querySelectorAll(
+              'input[name="adminAdditionalPages"]:checked'
+            )
+          ).map((cb) => cb.value);
+
+          // Layout preferences
+          data.headerLayout = document.querySelector(
+            'input[name="headerLayout"]:checked'
+          )?.value;
+          data.bannerLayout = document.querySelector(
+            'input[name="bannerLayout"]:checked'
+          )?.value;
+          data.contentLayout = document.querySelector(
+            'input[name="contentLayout"]:checked'
+          )?.value;
+          data.footerLayout = document.querySelector(
+            'input[name="footerLayout"]:checked'
+          )?.value;
+
+          // Brand & colors
+          data.primaryColor = document.getElementById("primaryColor").value;
+          data.referenceWebsite =
+            document.getElementById("referenceWebsite").value;
+
+          // Features
+          data.features = Array.from(
+            document.querySelectorAll('input[name="features"]:checked')
+          ).map((cb) => cb.value);
+          data.otherFeatures = document.getElementById("otherFeatures").value;
+
+          // Custom requirements
+          data.customRequirements =
+            document.getElementById("customRequirements")?.value;
+
+          console.log("Form Data:", data);
+
+          // Show success message
+          document
+            .querySelector(".bg-white.rounded-2xl.shadow-xl")
+            .classList.add("hidden");
+          document.getElementById("successMessage").classList.remove("hidden");
+        });
+
+      // Initialize
+      updateProgressBar();
+
+      // Nếu đang ở Step 1 và bấm Enter => gọi nextStep() thay vì submit
+      document.querySelectorAll("#step1 input").forEach((input) => {
+        input.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault(); // Ngăn submit form
+            nextStep(); // Gọi sang bước tiếp theo
+          }
+        });
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'986d487e87e7ce86',t:'MTc1OTE2NzgxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+    <script>
+      function openModal(src) {
+        document.getElementById("modalImg").src = src;
+        document.getElementById("imgModal").classList.remove("hidden");
+      }
+      function closeModal() {
+        document.getElementById("imgModal").classList.add("hidden");
+      }
+    </script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("JlezGZlYwQfk7i68V"); // Public Key
+      })();
+
+      const form = document.getElementById("websiteForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // 🔹 Lấy tất cả Frontend bổ sung
+        const frontendExtra = Array.from(
+          document.querySelectorAll(
+            'input[name="frontendAdditionalPages"]:checked'
+          )
+        )
+          .map((cb) => cb.value)
+          .join(", ");
+
+        // 🔹 Lấy tất cả Admin bổ sung
+        const adminExtra = Array.from(
+          document.querySelectorAll(
+            'input[name="adminAdditionalPages"]:checked'
+          )
+        )
+          .map((cb) => cb.value)
+          .join(", ");
+
+        // 🔹 Trước khi thêm hidden input thì xoá hết checkbox động để tránh trùng
+        document
+          .querySelectorAll('input[name="frontendAdditionalPages"]')
+          .forEach((el) => el.remove());
+        document
+          .querySelectorAll('input[name="adminAdditionalPages"]')
+          .forEach((el) => el.remove());
+
+        // 🔹 Tạo / cập nhật hidden input trùng với EmailJS template
+        let frontendHidden = document.getElementById("frontendExtraInput");
+        if (!frontendHidden) {
+          frontendHidden = document.createElement("input");
+          frontendHidden.type = "hidden";
+          frontendHidden.name = "frontendAdditionalPages"; // ⚡ trùng EmailJS template
+          frontendHidden.id = "frontendExtraInput";
+          form.appendChild(frontendHidden);
+        }
+        frontendHidden.value = frontendExtra || "Không có";
+
+        let adminHidden = document.getElementById("adminExtraInput");
+        if (!adminHidden) {
+          adminHidden = document.createElement("input");
+          adminHidden.type = "hidden";
+          adminHidden.name = "adminAdditionalPages"; // ⚡ trùng EmailJS template
+          adminHidden.id = "adminExtraInput";
+          form.appendChild(adminHidden);
+        }
+        adminHidden.value = adminExtra || "Không có";
+
+        // 🔹 Gửi form qua EmailJS
+        emailjs
+          .sendForm("service_kqxe5an", "template_yl7ki8l", form)
+          .then(() => {
+            document
+              .querySelector(".bg-white.rounded-2xl.shadow-xl")
+              .classList.add("hidden");
+            document
+              .getElementById("successMessage")
+              .classList.remove("hidden");
+            form.reset();
+          })
+          .catch((err) => {
+            console.error("EmailJS Error:", err);
+            alert("❌ Lỗi khi gửi email. Xem console để biết chi tiết.");
+          });
+      });
+    </script>
+  </body>
+</html>
